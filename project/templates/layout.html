@@ -1,0 +1,120 @@
+<!DOCTYPE html>
+
+<html lang="en">
+
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="initial-scale=1, width=device-width">
+
+    <!-- http://getbootstrap.com/docs/5.1/ -->
+    <link crossorigin="anonymous" href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css" integrity="sha384-1BmE4kWBq78iYhFldvKuhfTAU6auU8tT94WrHftjDbrCEXSU1oBoqyl2QvZ6jIW3" rel="stylesheet">
+    <script crossorigin="anonymous" src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-ka7Sk0Gln4gmtz2MlQnikT1wXgYsOg+OMhuP+IlRH9sENBO0LRn5q+8nbTov4+1p"></script>
+
+    <link href="/static/styles.css" rel="stylesheet">
+
+    <!--Font selection-->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Nunito&display=swap" rel="stylesheet">
+
+    <!--Bootstrap icons-->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.1/font/bootstrap-icons.css">
+    <script>
+        let theUnit;
+
+        function getUnit() {
+
+            theUnit = localStorage.getItem('temperatureUnit') || 'F';
+
+            if (theUnit == 'C') {
+                document.getElementById('degreeselection').selectedIndex = 1
+            }
+            else {
+                document.getElementById('degreeselection').selectedIndex = 0
+            }
+
+            return theUnit;
+        }
+
+        function setTemperatureUnit(unit) {
+            // Update the displayed unit
+            document.getElementById('degreeselection').value = unit === 'F' ? 'F' : 'C';
+
+            // Store the preference in localStorage
+            localStorage.setItem('temperatureUnit', unit);
+
+            // Call the server to update the preference
+            fetch('/temp_unit', {
+                method: 'POST',
+                headers: {
+                    'Content-Type': 'application/json',
+                },
+                body: JSON.stringify({ unit }),
+            });
+
+            getUnit();
+        };
+
+        function setScale() {
+            //Sets Celsius or Fahrenheit display
+            let degreeScale = document.querySelectorAll("#degreescale");
+
+            if (theUnit == 'F') {
+                degreeScale.forEach(dscale => {
+                    dscale.innerHTML = '°F';
+                });
+            }
+            else if (theUnit == 'C') {
+                degreeScale.forEach(dscale => {
+                    dscale.innerHTML = '°C';
+                });
+            }
+        };
+
+    </script>
+    {% block head %}{% endblock %}
+
+</head>
+<body>
+    <nav class="navbar sticky-top navbar-expand-lg shadow mb-0" style="background-color: #75BEC6;">
+        <div class="container-fluid">
+            <div class="d-flex">
+                <img class="d-inline" src="static/pictures/clouds-and-sun.png" style=" width: 40px; max-width: 100%; height: auto;">
+                <select onchange="setTemperatureUnit(this.value); setScale();" id="degreeselection" aria-label="Degree scale selection">
+                    <option value="F" selected>Fahrenheit</option>
+                    <option value="C">Celsius</option>
+                </select>
+            </div>
+            <button style="background: none; border: none;" class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNavAltMarkup" aria-controls="navbarNavAltMarkup" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"><i class="bi-list" style="font-size: 2rem; color: white;"></i></span>
+            </button>
+            <div class="collapse navbar-collapse justify-content-between" id="navbarNavAltMarkup">
+                <div>
+                </div>
+                <div class="navbar-nav">
+                    <a class="nav-link" href="/current">Current</a>
+                    <a class="nav-link" href="/hourly">Hourly</a>
+                    <a class="nav-link" href="/3dayforecast">3-Day Forecast</a>
+                </div>
+                <div class="navbar-nav">
+                    <a id="searchnav" class="nav-link" style="border-radius: 5px; text-decoration: none; padding: 8px 8px; color: white;"
+                    href="/">Search <i class="bi-binoculars-fill" style="font-size: 1rem"></i></a>
+                </div>
+            </div>
+        </div>
+    </nav>
+
+    {% if get_flashed_messages() %}
+            <header>
+                <div class="alert alert-warning mb-0 text-center" role="alert">
+                    {{ get_flashed_messages() | join(" ") }}
+                </div>
+            </header>
+    {% endif %}
+
+    {% block body %}{% endblock %}
+    <div style="text-align: center; margin-bottom: 20px;">
+        Powered by <a id="powered" href="https://www.weatherapi.com/" target="_blank" rel="noopener noreferrer" title="Free Weather API">WeatherAPI.com</a>
+    </div>
+</body>
+</html>
