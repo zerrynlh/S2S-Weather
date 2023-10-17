@@ -1,0 +1,180 @@
+{% extends "layout.html" %}
+
+{% block head %}
+<script src="{{ url_for('static', filename='3day.js') }}"></script>
+{% endblock %}
+
+{% block body %}
+
+<div class="h2-container mx-1 mt-3">
+  <h2 id="threedaycity">{{ thecity }}</h2>
+</div>
+
+<div class="container text-center">
+
+    <div class="row align-items-start">
+
+        <!--Day 1 forecast data-->
+        <div class="col" style="background-color: transparent;">
+
+            <h3>{{ thedays[0].strftime('%A') }}</h3>
+    
+            <div class="col px-3 py-1 mt-3" id="threedayindex">
+                <p id="day0condition" style="margin-top: 20px; color: black; font-weight: bold;"></p>
+                <div>
+                  <img id="day0image" src="" style="width: 15vh; height: auto;" class="my-3">
+                </div>
+    
+                <div class="d-flex bd-highlight mb-3" style="font-size: 15px;">
+                  <div class="p-2 bd-highlight">
+                    <i class="bi-thermometer-sun center" style="font-size: 1.5rem; color: black;"></i>
+                  </div>
+                  <div class="p-2 bd-highlight">
+                    <p style="color: black;" class="center">High:</p>
+                  </div>
+                  <div class="ms-auto p-2 bd-highlight" style="display: flex; flex-direction: row;">
+                    <p class="center" id="day0high"></p>
+                    <p id="degreescale" class="center"></p>
+                  </div>
+                </div>
+    
+                <div class="d-flex bd-highlight mb-3" style="font-size: 15px;">
+                  <div class="p-2 bd-highlight">
+                    <i class="bi-thermometer-snow center" style="font-size: 1.5rem; color: black;"></i>
+                  </div>
+                  <div class="p-2 bd-highlight">
+                    <p class="center" style="color: black;"> Low:</p>
+                  </div>
+                  <div class="ms-auto p-2 bd-highlight" style="display: flex; flex-direction: row;">
+                    <p class="center" id="day0low"></p>
+                    <p id="degreescale" class="center"></p>
+                  </div>
+                </div>
+    
+                <div class="d-flex bd-highlight mb-3" style="font-size: 15px;">
+                  <div class="p-2 bd-highlight">
+                    <i class="bi-umbrella-fill center" style="font-size: 1.5rem; color: black;"></i>
+                  </div>
+                  <div class="p-2 bd-highlight">
+                    <p style="color: black;" class="center">Chance of rain:</p>
+                  </div>
+                  <div class="ms-auto p-2 bd-highlight">
+                    <p class="center" id="day0rain"></p>
+                  </div>
+                </div>
+    
+            </div>
+    
+          </div>
+
+        
+        <!--Day 2 forecast data-->
+      <div class="col" style="background-color: transparent;">
+
+        <h3>{{ thedays[1].strftime('%A') }}</h3>
+
+        <div class="col px-3 py-1 mt-3" id="threedayindex">
+            <p id="day1condition" style="margin-top: 20px; color: black; font-weight: bold;"></p>
+            <div>
+              <img id="day1image" src="" style="width: 15vh; height: auto;" class="my-3">
+            </div>
+
+            <div class="d-flex bd-highlight mb-3" style="font-size: 15px;">
+              <div class="p-2 bd-highlight">
+                <i class="bi-thermometer-sun center" style="font-size: 1.5rem; color: black;"></i>
+              </div>
+              <div class="p-2 bd-highlight">
+                <p style="color: black;" class="center">High:</p>
+              </div>
+              <div class="ms-auto p-2 bd-highlight" style="display: flex; flex-direction: row;">
+                <p class="center" id="day1high"></p>
+                <p id="degreescale" class="center"></p>
+              </div>
+            </div>
+
+            <div class="d-flex bd-highlight mb-3" style="font-size: 15px;">
+              <div class="p-2 bd-highlight">
+                <i class="bi-thermometer-snow center" style="font-size: 1.5rem; color: black;"></i>
+              </div>
+              <div class="p-2 bd-highlight">
+                <p class="center" style="color: black;"> Low:</p>
+              </div>
+              <div class="ms-auto p-2 bd-highlight" style="display: flex; flex-direction: row;">
+                <p class="center" id="day1low"></p>
+                <p id="degreescale" class="center"></p>
+              </div>
+            </div>
+
+            <div class="d-flex bd-highlight mb-3" style="font-size: 15px;">
+              <div class="p-2 bd-highlight">
+                <i class="bi-umbrella-fill center" style="font-size: 1.5rem; color: black;"></i>
+              </div>
+              <div class="p-2 bd-highlight">
+                <p style="color: black;" class="center">Chance of rain:</p>
+              </div>
+              <div class="ms-auto p-2 bd-highlight">
+                <p class="center" id="day1rain"></p>
+              </div>
+            </div>
+
+        </div>
+
+      </div>
+
+      <!--Day 3 forecast data-->
+      <div class="col" style="background-color: transparent;">
+
+        <h3>{{ thedays[2].strftime('%A') }}</h3>
+
+        <div class="col px-3 py-1 mt-3" id="threedayindex">
+            <p id="day2condition" style="margin-top: 20px; color: black; font-weight: bold;"></p>
+            <div>
+              <img id="day2image" src="" style="width: 15vh; height: auto;" class="my-3">
+            </div>
+
+            <div class="d-flex bd-highlight mb-3" style="font-size: 15px;">
+              <div class="p-2 bd-highlight">
+                <i class="bi-thermometer-sun center" style="font-size: 1.5rem; color: black;"></i>
+              </div>
+              <div class="p-2 bd-highlight">
+                <p style="color: black;" class="center">High:</p>
+              </div>
+              <div class="ms-auto p-2 bd-highlight" style="display: flex; flex-direction: row;">
+                <p class="center" id="day2high"></p>
+                <p id="degreescale" class="center"></p>
+              </div>
+            </div>
+
+            <div class="d-flex bd-highlight mb-3" style="font-size: 15px;">
+              <div class="p-2 bd-highlight">
+                <i class="bi-thermometer-snow center" style="font-size: 1.5rem; color: black;"></i>
+              </div>
+              <div class="p-2 bd-highlight">
+                <p class="center" style="color: black;"> Low:</p>
+              </div>
+              <div class="ms-auto p-2 bd-highlight" style="display: flex; flex-direction: row;">
+                <p class="center" id="day2low"></p>
+                <p id="degreescale" class="center"></p>
+              </div>
+            </div>
+
+            <div class="d-flex bd-highlight mb-3" style="font-size: 15px;">
+              <div class="p-2 bd-highlight">
+                <i class="bi-umbrella-fill center" style="font-size: 1.5rem; color: black;"></i>
+              </div>
+              <div class="p-2 bd-highlight">
+                <p style="color: black;" class="center">Chance of rain:</p>
+              </div>
+              <div class="ms-auto p-2 bd-highlight">
+                <p class="center" id="day2rain"></p>
+              </div>
+            </div>
+
+        </div>
+
+      </div>
+
+    </div>
+</div>
+
+{% endblock %}

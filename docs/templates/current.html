@@ -1,0 +1,67 @@
+{% extends "layout.html" %}
+
+{% block head %}
+<script src="{{ url_for('static', filename='current.js') }}"></script>
+{% endblock %}
+
+{% block body %}
+
+<div id="currentdiv" style="background-color: rgba(252, 255, 255, 0.8); text-align: center; border-radius: 5px;" class="container mb-4 mx-auto">
+
+    <div class="mx-5 my-4">
+        <h1 id="currentindex" style="color: black;"></h1>
+    </div>
+
+    <p id="thehiddencity" hidden>{{ thecity }}</p>
+
+    <h4 id="currentcondition" style="padding-top: 15px;"></h4>
+
+    <img id="currentimage" src="" style="width: 30vh; height: auto;" class="my-5">
+
+    <div class="d-flex justify-content-evenly mb-5">
+
+        <div class="d-flex flex-row">
+            <i class="bi-thermometer center" style="font-size: 3rem; color: black;"></i>
+            <p id="currenttemp" style="color: black;" class="center"></p>
+            <p id="degreescale" class="center"></p>
+        </div>
+        <div class="d-flex flex=row-reverse">
+            <i class="bi-droplet-half center" style="font-size: 3rem; color: black; padding-right: 10px;"></i>
+            <p id="currenthumid" style="color: black;" class="center"></p>
+        </div>
+
+    </div>
+
+    <div class="d-flex justify-content-evenly mb-5">
+
+        <div class="d-flex flex-row">
+            <i class="bi-thermometer-low center" style="font-size: 3rem; color: black;"></i>
+            <p id="currentlow" style="color: black; margin-left: 10px;" class="center"></p>
+            <p id="degreescale" class="center"></p>
+        </div>
+        <div class="d-flex flex=row-reverse">
+            <i class="bi-thermometer-high center" style="font-size: 3rem; color: black;"></i>
+            <p id="currenthigh" style="color: black;" class="center"></p>
+            <p id="degreescale" class="center"></p>
+        </div>
+        
+    </div>
+
+    <div class="d-flex justify-content-evenly mb-5">
+
+        <div class="d-flex flex-row">
+            <i class="bi-water center" style="font-size: 3rem; color: black;"></i>
+            <p id="currentfeels" style="color: black; margin-left: 10px;" class="center"></p>
+            <p id="degreescale" class="center"></p>
+        </div>
+        <div class="d-flex flex=row-reverse">
+            <i class="bi-wind center" style="font-size: 3rem; color: black; padding-right: 10px;"></i>
+            <p id="currentwind" style="color: black;" class="center"></p>
+            <p id="speedscale" class="center"></p>
+        </div>
+        
+    </div>
+    
+</div>
+
+{% endblock %}
