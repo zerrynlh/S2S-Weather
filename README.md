@@ -8,7 +8,7 @@ A video demo can be located [here](https://youtu.be/7sHlLLJPLZY)
 ### Description: 
 For my CS50X final project, I wanted to make something that has utility and could be used in someone's daily life. So, I decided to make a weather application. This is Sunrise to Sunset Weather.
 
-This application uses JavaScript, a language that I was least familiar with, as well as Python and Flask. I chose Flask since it is a more lightweight web framework and my application did not require the use of tools like substantial form validation. This project pulls data from [Weather API](https://www.weatherapi.com/), [NewsData IO](https://newsdata.io/) as well as [Geoapify](https://www.geoapify.com/) for Geolocation which is a design choice that will be explained later. Since I was building a weather app for a computer science course, I thought it would be fitting to use the news API to display technology-related and environmental news.
+This application uses JavaScript as well as Python and Flask. I chose Flask since it is a more lightweight web framework and my application did not require the use of tools like substantial form validation. This project pulls data from [Weather API](https://www.weatherapi.com/), [NewsData IO](https://newsdata.io/) as well as [Geoapify](https://www.geoapify.com/) for Geolocation which is a design choice that will be explained later. Since I was building a weather app for a computer science course, I thought it would be fitting to use the news API to display technology-related and environmental news.
 
 ### Implementation:
 
