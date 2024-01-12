@@ -1,6 +1,9 @@
 # S2S Weather
 
-#### Video Demo:  <URL HERE>
+#### Video Demo:
+A video demo can be located [here](https://youtu.be/7sHlLLJPLZY)
+
+![S2s Weather Image:]
 
 ### Description: 
 For my CS50X final project, I wanted to make something that has utility and could be used in someone's daily life. So, I decided to make a weather application. This is Sunrise to Sunset Weather.
