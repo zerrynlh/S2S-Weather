@@ -3,7 +3,7 @@
 #### Video Demo:
 A video demo can be located [here](https://youtu.be/7sHlLLJPLZY)
 
-![S2s Weather Image:]
+![S2s Weather Image:](https://github.com/zerrynlh/S2S-Weather/blob/main/project/s2s-index.png)
 
 ### Description: 
 For my CS50X final project, I wanted to make something that has utility and could be used in someone's daily life. So, I decided to make a weather application. This is Sunrise to Sunset Weather.
@@ -25,3 +25,9 @@ Another challenge to consider was writing a function that indexes to the next fo
 When writing the function to display the news articles, some of the articles returned did not contain an image. A recursive function seemed best-fitted to handle this as well as randomization via JavaScript’s Math object.
 
 Additionally, I used the front-end framework Bootstrap to implement components and ensure that the web application looks beautiful across all devices.
+
+#### Install dependencies:
+>pip install -r requirements.txt
+
+#### To run this application:
+>python manage.py runserver
