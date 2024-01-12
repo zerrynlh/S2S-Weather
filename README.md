@@ -1,7 +1,7 @@
 # S2S Weather
 
 #### Video Demo:
-A video demo can be located [here](https://youtu.be/7sHlLLJPLZY)
+A video demo can be located [here](https://youtu.be/7sHlLLJPLZY).
 
 ![S2s Weather Image:](https://github.com/zerrynlh/S2S-Weather/blob/main/project/s2s-index.png)
 
